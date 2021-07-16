@@ -6,7 +6,7 @@ Param (
     $password = "hunter2", # Obfuscation happens on client
     $bwlimit = "0", # Max bandwidth in KBytes/s, or use a suffix b|k|M|G
     $volname = "DattoRestore", #[Default] is a local mount | For a `Mapped Drive` share specify "\\DattoCloud\FileRestore"
-    [bool]$cleanup = "0", # Set to now for component uninstall and removal
+    [bool]$cleanup = $false, # Set to true for auto component uninstall and removal
     $cache_size = "64M", #[Advanced] Limited use case
     $cache_limit = "2G", #[Advanced] Limited use case
     $buffer_size #[Advanced] Limited use case
@@ -21,7 +21,7 @@ function Invoke-Cleanup {
     Remove-Item "C:\temp\rclone.log" -Force | Out-Null
 }
 
-if ($cleanup -eq 1) {
+if ($cleanup -eq $true) {
     Invoke-Cleanup
     exit
 }
@@ -76,7 +76,7 @@ try {
     $Host.UI.RawUI.ReadKey("NoEcho, IncludeKeyDown") | OUT-NULL
     $Host.UI.RawUI.FlushInputbuffer()
     Stop-Process -Id $run.Id -Force
-    if ($cleanup -eq 1) {
+    if ($cleanup -eq $true) {
         Invoke-Cleanup
         exit
     }
