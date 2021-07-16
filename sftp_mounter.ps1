@@ -6,7 +6,7 @@ Param (
     $password = "hunter2", # Obfuscation happens on client
     $bwlimit = "0", # Max bandwidth in KBytes/s, or use a suffix b|k|M|G
     $volname = "DattoRestore", #[Default] is a local mount | For a `Mapped Drive` share specify "\\DattoCloud\FileRestore"
-    [bool]$cleanup = "later", # Set to now for component uninstall and removal
+    [bool]$cleanup = "0", # Set to now for component uninstall and removal
     $cache_size = "64M", #[Advanced] Limited use case
     $cache_limit = "2G", #[Advanced] Limited use case
     $buffer_size #[Advanced] Limited use case
