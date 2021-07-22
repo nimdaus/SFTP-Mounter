@@ -2,14 +2,15 @@
 Automates mounting of an SFTP Share as a Local OR Network Disk on Windows systems.
 
 ## Instructions
-1. Download script to directory of choice
-2. Run powershell (as admin)
-3. Unblock-File -Path <Enter path manually OR drag and drop script into powershell window>
-4. Enter script path manually OR drag and drop script into powershell window
-5. Add paramters _e.g. -hostname server0000.file-restore.net_ and run!
+1. Download script to a directory of your choice
+2. Run Powershell (As Admin)
+3. Enable script execution with powershell command below (substituting path as demonstrated):
+> Unblock-File -Path '''Enter path manually OR drag and drop script into powershell window'''
+5. Enter script path manually OR drag and drop script into powershell window
+6. Add paramters _e.g. -hostname server0000.file-restore.net_ -- command should look like below:
+> .\sftp_mounter.ps1 -hostname server0000.file-restore.net -username sftp000000 -password hunter2
+7. RUN!
 
-*For Example:*
-> PS C:\Users\username> .\sftp_mounter.ps1 -hostname server0000.file-restore.net -username sftp000000 -password hunter2
 
 ### Under Development:
 * Support for iscsi / block devices.
